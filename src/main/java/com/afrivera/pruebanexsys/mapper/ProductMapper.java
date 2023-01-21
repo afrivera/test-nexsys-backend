@@ -1,6 +1,8 @@
 package com.afrivera.pruebanexsys.mapper;
 
 import com.afrivera.pruebanexsys.dto.ProductDto;
+import com.afrivera.pruebanexsys.dto.request.ProductRequestDto;
+import com.afrivera.pruebanexsys.dto.response.ProductResponseDto;
 import com.afrivera.pruebanexsys.model.entity.ProductEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -17,4 +19,13 @@ public interface ProductMapper {
             @Mapping(source = "price", target = "priceFinal")
     })
     ProductDto productEntityToProductDto(ProductEntity productEntity);
+
+    @Mapping(source = "id", target = "pid")
+    ProductResponseDto productEntityToProductResponseDto(ProductEntity productEntity);
+
+    @Mappings({
+            @Mapping(source = "name", target = "title"),
+            @Mapping(source = "priceFinal", target = "price")
+    })
+    ProductRequestDto productDtoToProductRequestDto(ProductDto productDto);
 }

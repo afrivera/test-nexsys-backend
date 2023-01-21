@@ -12,6 +12,8 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -36,5 +38,12 @@ public class CategoryServiceImpl extends AbstractClient implements CategoryServi
         }
 
         throw new RuntimeException("There was an error");
+    }
+
+    @Override
+    public Long randomCategoryId(){
+        List<CategoryDto> categories = getAllCategories();
+        Random random = new Random();
+        return categories.get(random.nextInt(categories.size()-1)).getCid();
     }
 }
