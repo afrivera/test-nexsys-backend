@@ -1,6 +1,6 @@
-package com.afrivera.pruebanexsys.dto;
+package com.afrivera.pruebanexsys.dto.response;
 
-public class ProductDto {
+public class ProductGetAllDto {
 
     private Long pid;
     private String name;

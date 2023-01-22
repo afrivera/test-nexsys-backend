@@ -1,6 +1,6 @@
 package com.afrivera.pruebanexsys.service.impl;
 
-import com.afrivera.pruebanexsys.dto.CategoryDto;
+import com.afrivera.pruebanexsys.dto.response.CategoryGetAllDto;
 import com.afrivera.pruebanexsys.mapper.CategoryMapper;
 import com.afrivera.pruebanexsys.model.entity.CategoryEntity;
 import com.afrivera.pruebanexsys.service.AbstractClient;
@@ -13,7 +13,6 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -27,7 +26,7 @@ public class CategoryServiceImpl extends AbstractClient implements CategoryServi
     }
 
     @Override
-    public List<CategoryDto> getAllCategories() {
+    public List<CategoryGetAllDto> getAllCategories() {
         String uri = baseUrl + "/categories";
         ResponseEntity<CategoryEntity[]> response = restTemplate.exchange(
                 uri, HttpMethod.GET, null, CategoryEntity[].class
@@ -42,7 +41,7 @@ public class CategoryServiceImpl extends AbstractClient implements CategoryServi
 
     @Override
     public Long randomCategoryId(){
-        List<CategoryDto> categories = getAllCategories();
+        List<CategoryGetAllDto> categories = getAllCategories();
         Random random = new Random();
         return categories.get(random.nextInt(categories.size()-1)).getCid();
     }

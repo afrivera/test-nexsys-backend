@@ -1,9 +1,8 @@
 package com.afrivera.pruebanexsys.controller;
 
-import com.afrivera.pruebanexsys.dto.ProductDto;
+import com.afrivera.pruebanexsys.dto.response.ProductGetAllDto;
 import com.afrivera.pruebanexsys.dto.request.ProductRequestInternalDto;
 import com.afrivera.pruebanexsys.dto.response.ProductResponseDto;
-import com.afrivera.pruebanexsys.model.entity.ProductEntity;
 import com.afrivera.pruebanexsys.service.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +22,7 @@ public class ProductController {
     }
 
     @GetMapping("/products")
-    public ResponseEntity<List<ProductDto>> getAllProduct(){
+    public ResponseEntity<List<ProductGetAllDto>> getAllProduct(){
         return new ResponseEntity<>(productService.getAllProducts(), HttpStatus.OK);
     }
 

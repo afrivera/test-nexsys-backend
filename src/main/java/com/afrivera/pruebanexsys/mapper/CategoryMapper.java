@@ -1,6 +1,6 @@
 package com.afrivera.pruebanexsys.mapper;
 
-import com.afrivera.pruebanexsys.dto.CategoryDto;
+import com.afrivera.pruebanexsys.dto.response.CategoryGetAllDto;
 import com.afrivera.pruebanexsys.model.entity.CategoryEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -16,5 +16,5 @@ public interface CategoryMapper {
             @Mapping(source = "id", target = "cid"),
             @Mapping(source = "name", target = "title")
     })
-    CategoryDto categoryEntityToCategoryDto(CategoryEntity categoryEntity);
+    CategoryGetAllDto categoryEntityToCategoryDto(CategoryEntity categoryEntity);
 }

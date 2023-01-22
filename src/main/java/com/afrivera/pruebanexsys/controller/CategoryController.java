@@ -1,6 +1,6 @@
 package com.afrivera.pruebanexsys.controller;
 
-import com.afrivera.pruebanexsys.dto.CategoryDto;
+import com.afrivera.pruebanexsys.dto.response.CategoryGetAllDto;
 import com.afrivera.pruebanexsys.service.CategoryService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +21,7 @@ public class CategoryController {
     }
 
     @GetMapping
-    public ResponseEntity<List<CategoryDto>> getAllCategories(){
+    public ResponseEntity<List<CategoryGetAllDto>> getAllCategories(){
         return new ResponseEntity<>(categoryService.getAllCategories(), HttpStatus.OK);
     }
 }

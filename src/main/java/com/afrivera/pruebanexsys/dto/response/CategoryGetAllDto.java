@@ -1,6 +1,6 @@
-package com.afrivera.pruebanexsys.dto;
+package com.afrivera.pruebanexsys.dto.response;
 
-public class CategoryDto {
+public class CategoryGetAllDto {
 
     private Long cid;
     private  String title;

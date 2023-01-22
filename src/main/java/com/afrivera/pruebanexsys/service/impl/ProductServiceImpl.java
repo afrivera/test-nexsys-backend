@@ -1,6 +1,6 @@
 package com.afrivera.pruebanexsys.service.impl;
 
-import com.afrivera.pruebanexsys.dto.ProductDto;
+import com.afrivera.pruebanexsys.dto.response.ProductGetAllDto;
 import com.afrivera.pruebanexsys.dto.request.ProductRequestCloudDto;
 import com.afrivera.pruebanexsys.dto.request.ProductRequestInternalDto;
 import com.afrivera.pruebanexsys.dto.response.ProductResponseDto;
@@ -30,7 +30,7 @@ public class ProductServiceImpl extends AbstractClient implements ProductService
     }
 
     @Override
-    public List<ProductDto> getAllProducts(){
+    public List<ProductGetAllDto> getAllProducts(){
         String uri = baseUrl + "/products";
         ResponseEntity<ProductEntity[]> response = restTemplate.exchange(
                 uri, HttpMethod.GET, null, ProductEntity[].class

@@ -1,6 +1,6 @@
 package com.afrivera.pruebanexsys.mapper;
 
-import com.afrivera.pruebanexsys.dto.ProductDto;
+import com.afrivera.pruebanexsys.dto.response.ProductGetAllDto;
 import com.afrivera.pruebanexsys.dto.request.ProductRequestCloudDto;
 import com.afrivera.pruebanexsys.dto.request.ProductRequestInternalDto;
 import com.afrivera.pruebanexsys.dto.response.ProductResponseDto;
@@ -19,7 +19,7 @@ public interface ProductMapper {
             @Mapping(source = "title", target = "name"),
             @Mapping(source = "price", target = "priceFinal")
     })
-    ProductDto productEntityToProductDto(ProductEntity productEntity);
+    ProductGetAllDto productEntityToProductDto(ProductEntity productEntity);
 
     @Mapping(source = "id", target = "pid")
     ProductResponseDto productEntityToProductResponseDto(ProductEntity productEntity);
