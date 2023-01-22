@@ -1,7 +1,8 @@
 package com.afrivera.pruebanexsys.service.impl;
 
 import com.afrivera.pruebanexsys.dto.ProductDto;
-import com.afrivera.pruebanexsys.dto.request.ProductRequestDto;
+import com.afrivera.pruebanexsys.dto.request.ProductRequestCloudDto;
+import com.afrivera.pruebanexsys.dto.request.ProductRequestInternalDto;
 import com.afrivera.pruebanexsys.dto.response.ProductResponseDto;
 import com.afrivera.pruebanexsys.mapper.ProductMapper;
 import com.afrivera.pruebanexsys.model.entity.ProductEntity;
@@ -41,11 +42,11 @@ public class ProductServiceImpl extends AbstractClient implements ProductService
     }
 
     @Override
-    public ProductResponseDto saveProduct(ProductDto productDto){
+    public ProductResponseDto saveProduct(ProductRequestInternalDto productRequestInternalDto){
         String uri = baseUrl + "/products";
-        ProductRequestDto requestDto = productMapper.productDtoToProductRequestDto(productDto);
+        ProductRequestCloudDto requestDto = productMapper.productDtoToProductRequestDto(productRequestInternalDto);
         requestDto.setCategoryId(categoryService.randomCategoryId());
-        requestDto.addImage("https://maite.site/media/imagenBlog/java.spring_y6FD96U.png");
+        requestDto.addImage(productRequestInternalDto.getImageUrl());
         ResponseEntity<ProductEntity> response = restTemplate.postForEntity(uri, requestDto, ProductEntity.class);
         if(response.getStatusCode().is2xxSuccessful()){
             return productMapper.productEntityToProductResponseDto(response.getBody());

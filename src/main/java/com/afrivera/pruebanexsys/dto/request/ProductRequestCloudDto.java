@@ -3,7 +3,7 @@ package com.afrivera.pruebanexsys.dto.request;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductRequestDto {
+public class ProductRequestCloudDto {
 
     private String title;
     private int price;
@@ -11,7 +11,7 @@ public class ProductRequestDto {
     private String description;
     private List<String> images;
 
-    public ProductRequestDto() {
+    public ProductRequestCloudDto() {
         images = new ArrayList<>();
     }
 
